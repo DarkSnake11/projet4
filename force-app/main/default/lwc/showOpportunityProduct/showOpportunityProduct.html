@@ -1,0 +1,40 @@
+<template>
+    <template if:true={hasQuantityError}>
+           <div class="slds-m-bottom_large slds-box slds-theme_alert-texture slds-theme_warning">
+               {labels.quantityError} 
+            </div>
+        </template>
+    <template lwc:if={hasNoproducts}>
+        <div class="slds-card slds-p-around_medium">
+            <div class="slds-media slds-media_center slds-has-flexi-truncate">
+                <div class="slds-media__figure">
+                    <lightning-icon
+                        icon-name="standard:opportunity"
+                        alternative-text="Opportunité"
+                        size="small"
+                        title="Opportunité">
+                    </lightning-icon>
+                </div>                                                                                                               
+                <div class="slds-media__body">
+                    <h2 class="slds-card__header-title slds-text-heading_small">
+                        {labels.OpportunityproductsLabel}
+                    </h2>
+                </div>
+            </div>
+            <div class="slds-m-top_medium">
+                 <lightning-formatted-rich-text value={labels.AnyProductLinesLabel}></lightning-formatted-rich-text>
+            </div>
+            
+        </div>
+    </template>
+    <template lwc:else>
+        <lightning-card title="Produits du Pricebook - FRANCE">
+            <lightning-datatable
+                key-field="Id"
+                data={products}
+                columns={columns}
+                onrowaction={callRowAction}>
+            </lightning-datatable>
+        </lightning-card>
+    </template>
+</template>
