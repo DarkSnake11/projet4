@@ -98,7 +98,7 @@ export default class ShowOpportunityProduct extends NavigationMixin(LightningEle
 
     //  Appelé quand on clique sur une action dans le datatable
     callRowAction(event) {
-        const recId = event.detail.row.Id;  // Id de l’OpportunityLineItem
+        const recId = event.detail.row.Id;  // Recupère Id de l’OpportunityLineItem
         const actionName = event.detail.action.name;
 
         console.log('Action cliquée:', actionName, ' sur recordId:', recId);
