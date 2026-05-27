@@ -1,5 +1,5 @@
 @isTest
-public with sharing class profilesControllerTest {
+public with sharing class ProfilesControllerTest {
 
     @isTest
     static void testGetUsersProfiles() {

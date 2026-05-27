@@ -1,5 +1,5 @@
 @isTest
-public with sharing class showOpportunityProductControllertest {
+public with sharing class ShowOpportunityProductControllertest {
 
     @testSetup static void createTestOpportunityProducts() {
         //Account

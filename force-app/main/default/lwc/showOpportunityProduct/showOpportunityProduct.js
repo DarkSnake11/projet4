@@ -36,7 +36,6 @@ export default class ShowOpportunityProduct extends NavigationMixin(LightningEle
         { label: Quantity_Label, fieldName: 'Quantity', type: 'number', cellAttributes: { alignment: 'left',
             class: { fieldName: 'quantityColor'}
          }},
-
         { label: Unit_Price_Label, fieldName: 'UnitPrice', type: 'currency' },
         { label: Total_Price_Label, fieldName: 'TotalPrice', type: 'currency' },
         { label: Quantity_in_stock_label, fieldName: 'QuantityInStock', type: 'number'},
@@ -98,8 +97,8 @@ export default class ShowOpportunityProduct extends NavigationMixin(LightningEle
 
     //  Appelé quand on clique sur une action dans le datatable
     callRowAction(event) {
-        const recId = event.detail.row.Id;  // Recupère Id de l’OpportunityLineItem
-        const actionName = event.detail.action.name;
+        const recId = event.detail.row.Id;  // Recupère Id de la ligne produit de l’OpportunityLineItem
+        const actionName = event.detail.action.name; //Récupère le nom du bouton cliqué
 
         console.log('Action cliquée:', actionName, ' sur recordId:', recId);
 
@@ -127,7 +126,7 @@ export default class ShowOpportunityProduct extends NavigationMixin(LightningEle
         deleteRecord(recordIdToDelete)
             .then(() => {
                 this.showToast('Succès', 'Produit supprimé avec succès', 'success', 'dismissable');
-                return refreshApex(this.wireResult);
+                return refreshApex(this.wireResult); //recharge la liste à jour
             })
             .catch(error => {
                 this.showToast('Erreur', 'Impossible de supprimer le produit', 'error', 'sticky');
@@ -154,7 +153,7 @@ export default class ShowOpportunityProduct extends NavigationMixin(LightningEle
             }
         })
         .catch(error => {
-            console.error('Erreur lors de la récupération du profil utilisateur : ' + error);
+            console.error('Erreur lors de la récupération du profil utilisateurs : ' + error);
         });
     } 
 }
